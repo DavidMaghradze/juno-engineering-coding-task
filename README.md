@@ -26,3 +26,5 @@ You should write in total four JavaScript functions, it is recommended to do it 
 The instructions are specified in TODO comments.
 
 
+P.S:
+I do not added tests, because I have never written tests before. 
