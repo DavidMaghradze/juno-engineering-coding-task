@@ -1,11 +1,30 @@
-import logo from '../logo.svg';
+import { useEffect, useState } from 'react'
+
 import './App.css';
-import ImageCarousel from "./ImageCarousel";
+import { fetchImages } from '../api/index'
+import ImageCarousel from '../components/Carousel';
 
 function App() {
+
+  const [images, setImages] = useState([])
+
+  const getImages = async () => {
+    try {
+      const images = await fetchImages()
+      setImages(images)
+    } catch {
+      console.log('Something Went Wrong')
+    }
+  }
+
+  useEffect(()=>{
+    getImages()
+  },[])
+
+
   return (
       <div>
-        <ImageCarousel />
+        <ImageCarousel data={images}/>
       </div>
   );
 }
